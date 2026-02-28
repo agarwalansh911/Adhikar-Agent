@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adhikar-Agent | Government Scheme Automation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#FF6B35"/>
+                    <path d="M20 10L30 20L20 30L10 20L20 10Z" fill="white"/>
+                </svg>
+                <h1>Adhikar-Agent</h1>
+            </div>
+            <p class="tagline">Empowering Citizens Through AI-Powered Scheme Access</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h2>Upload Your Documents</h2>
+            <p class="subtitle">We'll handle the rest - securely and automatically</p>
+            
+            <div class="upload-grid">
+                <!-- Aadhaar -->
+                <div class="upload-box">
+                    <div class="upload-icon">📄</div>
+                    <h3>Aadhaar Card</h3>
+                    <input type="file" id="aadhaar" accept="image/*" class="file-input">
+                    <label for="aadhaar" class="upload-btn">Choose File</label>
+                    <span class="file-name" id="aadhaar-name">No file chosen</span>
+                </div>
+
+                <!-- Voter ID -->
+                <div class="upload-box">
+                    <div class="upload-icon">🗳️</div>
+                    <h3>Voter ID</h3>
+                    <input type="file" id="voter" accept="image/*" class="file-input">
+                    <label for="voter" class="upload-btn">Choose File</label>
+                    <span class="file-name" id="voter-name">No file chosen</span>
+                </div>
+
+                <!-- Ration Card -->
+                <div class="upload-box">
+                    <div class="upload-icon">🏪</div>
+                    <h3>Ration Card</h3>
+                    <input type="file" id="ration" accept="image/*" class="file-input">
+                    <label for="ration" class="upload-btn">Choose File</label>
+                    <span class="file-name" id="ration-name">No file chosen</span>
+                </div>
+
+                <!-- Caste Certificate -->
+                <div class="upload-box">
+                    <div class="upload-icon">📋</div>
+                    <h3>Caste Certificate</h3>
+                    <input type="file" id="caste" accept="image/*" class="file-input">
+                    <label for="caste" class="upload-btn">Choose File</label>
+                    <span class="file-name" id="caste-name">No file chosen</span>
+                </div>
+            </div>
+
+            <button id="submitBtn" class="submit-btn">Process Documents</button>
+        </section>
+
+        <!-- Trust Terminal (Processing Log) -->
+        <section class="terminal-section" id="terminalSection" style="display: none;">
+            <h2>⚙️ Processing Your Application</h2>
+            <div class="terminal">
+                <div class="terminal-line" id="log1">
+                    <span class="spinner">●</span> Uploading documents...
+                </div>
+                <div class="terminal-line" id="log2" style="display: none;">
+                    <span class="spinner">●</span> Extracting data using AWS Textract...
+                </div>
+                <div class="terminal-line" id="log3" style="display: none;">
+                    <span class="spinner">●</span> Masking Aadhaar securely (XXXX-XXXX-1234)...
+                </div>
+                <div class="terminal-line" id="log4" style="display: none;">
+                    <span class="spinner">●</span> Checking PMAY eligibility with Amazon Bedrock AI...
+                </div>
+                <div class="terminal-line" id="log5" style="display: none;">
+                    <span class="spinner">●</span> Auto-filling government PDF form...
+                </div>
+                <div class="terminal-line success" id="log6" style="display: none;">
+                    ✓ Application form generated successfully!
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Section -->
+        <section class="success-section" id="successSection" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h2>Application Form Ready!</h2>
+            <p>Your PMAY application has been auto-filled and is ready for download.</p>
+            <button id="downloadBtn" class="download-btn">Download Application Form</button>
+        </section>
+
+        <!-- Error Section -->
+        <section class="error-section" id="errorSection" style="display: none;">
+            <div class="error-icon">✗</div>
+            <h2>Processing Failed</h2>
+            <p id="errorMessage">An error occurred. Please try again.</p>
+            <button onclick="location.reload()" class="retry-btn">Try Again</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
